@@ -58,20 +58,22 @@ public class Agdistis {
         entities.forEach(entity -> entity.getIndices().forEach(i -> indexEntityMap.put(i, entity)));
 
         final Set<Integer> startIndices = new TreeSet<>(indexEntityMap.keySet());
-        String agdistis_input = "";
+        
+        StringBuilder agdistisBuilder = new StringBuilder();
         int last = 0;
         for (final Integer index : startIndices) {
             final Entity entity = indexEntityMap.get(index);
 
-            agdistis_input += input.substring(last, index);
+            agdistisBuilder.append(input.substring(last, index));
             // int fakeindex = agdistis_input.length() + "<entity>".length();
 
-            agdistis_input += "<entity>" + entity.getText() + "</entity>";
+            agdistisBuilder.append("<entity>").append(entity.getText()).append("</entity>");
 
             last = index + entity.getText().length();
             // indexMap.put(fakeindex + indexOffset, entity);
             indexMap.put(index, entity);
         }
+        String agdistis_input = agdistisBuilder.toString();
         agdistis_input += input.substring(last);
 
         return agdistis_input;

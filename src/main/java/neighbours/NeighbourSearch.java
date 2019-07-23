@@ -84,7 +84,7 @@ public class NeighbourSearch extends AbstractSet<INamedObject> {
     }
 
 
-    public class DistantObject implements Comparable<DistantObject>{
+    public static class DistantObject implements Comparable<DistantObject>{
 
         private INamedObject content;
 

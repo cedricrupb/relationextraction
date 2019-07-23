@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 /**
@@ -148,10 +149,10 @@ public class TokenManager {
     }
 
     public Set<String> getLabeledInput() {
-        for (Integer index : indexToken.keySet()) {
-            String label = indexLabel.get(index);
+        for (Entry<Integer, String> entry : indexToken.entrySet()) {
+            String label = entry.getValue();
             if (label == null)
-                setlabel(index, indexToken.get(index));
+                setlabel(entry.getKey(), entry.getValue());
         }
         return labelIndex.keySet();
     }

@@ -1,6 +1,6 @@
 package pipeline;
 
-import com.sun.tools.javac.util.Pair;
+
 
 /**
  * An abstract class which helps to implement a pipe which splits the input
@@ -25,8 +25,8 @@ public abstract class SplitPipe<S, A, T> implements ISink<S>{
     @Override
     public void push(S obj) {
         Pair<A, T> pair = split(obj);
-        sinkA.push(pair.fst);
-        sinkT.push(pair.snd);
+        sinkA.push(pair.getFirst());
+        sinkT.push(pair.getSecond());
     }
 
     @Override

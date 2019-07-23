@@ -66,14 +66,18 @@ public class JaccardNgramMeasure implements IStringMeasure {
 
     public Set<String> ngrams(String in){
         Set<String> ngrams = new HashSet<>();
+        
+        StringBuilder ngramIn = new StringBuilder(in);
 
         if(in.length() < n){
-            do{
-                in += "#";
-            }while(in.length() < n);
-            ngrams.add(in);
+            for(int i = in.length(); i < n; i++) {
+                ngramIn.append("#");
+            }
+            ngrams.add(ngramIn.toString());
             return ngrams;
         }
+        
+        in = ngramIn.toString();
 
         for(int i = 0; i < in.length()-n+1; i++){
             ngrams.add(in.substring(i, i+n));

@@ -75,7 +75,7 @@ public class RCModel {
 
 
 
-    private class LabelKey{
+    private static class LabelKey{
 
         private String firstLabel, secondLabel;
 

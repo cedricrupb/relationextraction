@@ -145,7 +145,9 @@ public class ConfigHandler {
         try {
             BufferedReader reader = Files.newBufferedReader(p);
             String act;
-            while ((act = reader.readLine()) != null) in += act;
+            StringBuilder inBuilder = new StringBuilder();
+            while ((act = reader.readLine()) != null) inBuilder.append(act);
+            in = inBuilder.toString();
             JsonElement element = new JsonParser().parse(in);
             if (element instanceof JsonObject) {
                 JsonObject obj = (JsonObject) element;

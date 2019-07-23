@@ -54,12 +54,12 @@ public class NERStringPreprocessor extends APipe<String, ILabelledEntity> {
 
             String firstLabel = cleanLabel(tokens.get(f).get(tokens.get(f).size()-1));
 
-            String firstName = "";
-
+            
+            StringBuilder firstNameBuilder = new StringBuilder();
             for(String s: clean(tokens.get(f))){
-                firstName += " "+s;
+                firstNameBuilder.append(" ").append(s);
             }
-            firstName = firstName.trim();
+            String firstName = firstNameBuilder.toString().trim();
 
             List<String> inner = new ArrayList<>();
 
@@ -69,12 +69,11 @@ public class NERStringPreprocessor extends APipe<String, ILabelledEntity> {
 
             String secondLabel = cleanLabel(tokens.get(l).get(tokens.get(l).size()-1));
 
-            String secondName = "";
-
+            StringBuilder secondNameBuilder = new StringBuilder();
             for(String s: clean(tokens.get(l))){
-                secondName += " "+s;
+                secondNameBuilder.append(" ").append(s);
             }
-            secondName = secondName.trim();
+            String secondName = secondNameBuilder.toString().trim();
 
             List<String> back = new ArrayList<>();
 

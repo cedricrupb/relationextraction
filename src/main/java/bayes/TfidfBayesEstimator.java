@@ -97,7 +97,7 @@ public class TfidfBayesEstimator implements IBayesEstimator {
         return stats.get(cat);
     }
 
-    private class Category implements ICategory{
+    private static class Category implements ICategory{
 
         private String first;
         private String second;
@@ -144,7 +144,7 @@ public class TfidfBayesEstimator implements IBayesEstimator {
     }
 
 
-    private class TermStats{
+    private static class TermStats{
         private long termCount = 0;
         private Map<String, Integer> termFrequency = new HashMap<>();
 

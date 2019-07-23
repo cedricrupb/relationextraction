@@ -175,7 +175,7 @@ public class RelationExtPipeFactory {
     }
 
 
-    private class EndPipe extends APipe<Pair<Pair<RelationEntity, RelationEntity>, IClassificationTestResult>,
+    private static class EndPipe extends APipe<Pair<Pair<RelationEntity, RelationEntity>, IClassificationTestResult>,
                                         Relation>{
 
         @Override

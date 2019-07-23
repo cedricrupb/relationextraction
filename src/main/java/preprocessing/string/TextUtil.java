@@ -110,10 +110,13 @@ public class TextUtil {
 
             int cleanSentenceLen = cleanSentence.length();
 
-            String closeLen = "";
-            while (cleanSentenceLen + closeLen.length() < len) {
-                closeLen += " ";
+            StringBuilder builder = new StringBuilder();
+            for(int i = cleanSentenceLen; i < len; i++) {
+                builder.append(" ");
             }
+            
+            String closeLen = builder.toString();
+            
             // add this token
             if (!closeLen.isEmpty())
                 token = ArrayUtils.add(token, token.length, closeLen);

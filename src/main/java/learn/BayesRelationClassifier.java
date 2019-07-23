@@ -152,7 +152,7 @@ public class BayesRelationClassifier implements IRelationClassifier {
         return out;
     }
 
-    private class SearchResultComparator implements Comparator<IRCSearchResult>{
+    private static class SearchResultComparator implements Comparator<IRCSearchResult>{
 
         @Override
         public int compare(IRCSearchResult o1, IRCSearchResult o2) {
